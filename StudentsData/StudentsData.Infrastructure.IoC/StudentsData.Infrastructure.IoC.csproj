@@ -4,4 +4,13 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\StudentsData.Application\StudentsData.Application.csproj" />
+    <ProjectReference Include="..\StudentsData.Infrastructure.Data\StudentsData.Infrastructure.Data.csproj" />
+  </ItemGroup>
+
 </Project>
