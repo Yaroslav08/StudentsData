@@ -1,4 +1,6 @@
 ﻿using StudentsData.Application.ViewModels;
+using StudentsData.Application.ViewModels.Create;
+using StudentsData.Application.ViewModels.Edit;
 using System;
 using System.Collections.Generic;
 using System.Text;
