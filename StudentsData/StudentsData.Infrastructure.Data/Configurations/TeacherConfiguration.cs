@@ -14,7 +14,8 @@ namespace StudentsData.Infrastructure.Data.Configurations
             builder.HasIndex(d => new
             {
                 d.Username,
-                d.Login
+                d.Login,
+                d.TokenConfirm
             });
         }
     }
