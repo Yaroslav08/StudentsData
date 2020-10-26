@@ -40,7 +40,7 @@ namespace StudentsData.MVC.Controllers
             return LocalRedirect("~/student/all");
         }
 
-        [HttpGet("edit/{Id}")]
+        [HttpGet("edit")]
         public async Task<IActionResult> Edit(int Id)
         {
             var student = await studentService.GetStudentById(Id);

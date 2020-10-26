@@ -40,7 +40,7 @@ namespace StudentsData.MVC.Controllers
             return LocalRedirect("~/group/all");
         }
 
-        [HttpGet("edit/{Id}")]
+        [HttpGet("edit")]
         public async Task<IActionResult> Edit(int Id)
         {
             var group = await groupService.GetGroupById(Id);
