@@ -92,5 +92,17 @@ namespace StudentsData.MVC.Controllers
             }
             return View(student);
         }
+
+        [HttpGet("remove/{Id}")]
+        public async Task<IActionResult> Remove(int Id)
+        {
+            var res = await studentService.RemoveStudent(Id);
+            if (res != "OK")
+            {
+                ViewBag.Error = res;
+                return View("Error");
+            }
+            return LocalRedirect("~/student/all");
+        }
     }
 }
