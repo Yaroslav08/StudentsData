@@ -37,18 +37,6 @@ else
                 <th>
                     @Html.DisplayNameFor(model => model.Photo)
                 </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Address)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.MobilePhone)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.EmailAddress)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Passport)
-                </th>
                 <th></th>
             </tr>
         </thead>
@@ -75,19 +63,8 @@ else
                         @Html.DisplayFor(modelItem => item.Photo)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Address)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.MobilePhone)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.EmailAddress)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Passport)
-                    </td>
-                    <td>
                         @Html.ActionLink("Редагувати", "Edit", new { Id = item.Id }) |
+                        @Html.ActionLink("Детальніше", "Details", new { Id = item.Id }) |
                         @Html.ActionLink("Видалити", "Remove", new { Id = item.Id })
                     </td>
                 </tr>

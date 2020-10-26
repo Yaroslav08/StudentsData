@@ -80,5 +80,17 @@ namespace StudentsData.MVC.Controllers
         {
             return View(await studentService.GetAllStudents());
         }
+
+        [HttpGet("{Id}")]
+        public async Task<IActionResult> Details(int Id)
+        {
+            var student = await studentService.GetStudentById(Id);
+            if (student == null)
+            {
+                ViewBag.Error = "Студента не знайдено";
+                return View("Error");
+            }
+            return View(student);
+        }
     }
 }
