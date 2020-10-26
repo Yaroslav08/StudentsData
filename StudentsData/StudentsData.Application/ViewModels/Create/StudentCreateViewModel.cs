@@ -2,14 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
-namespace StudentsData.Domain.Models
+namespace StudentsData.Application.ViewModels.Create
 {
-    public class Student
+    public class StudentCreateViewModel
     {
-        [Key]
-        public int Id { get; set; }
-        [Required]
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
         [Required, MinLength(2), MaxLength(25)]
         public string Firstname { get; set; }
         [Required, MinLength(2), MaxLength(25)]
@@ -27,6 +23,5 @@ namespace StudentsData.Domain.Models
         [MinLength(5), MaxLength(250)]
         public string Passport { get; set; }
         public int GroupId { get; set; }
-        public Group Group { get; set; }
     }
 }
