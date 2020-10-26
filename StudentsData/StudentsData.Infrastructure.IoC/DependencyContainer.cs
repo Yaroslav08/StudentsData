@@ -16,10 +16,14 @@ namespace StudentsData.Infrastructure.IoC
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 
+            services.AddScoped<ITeacherRepository, TeacherRepository>();
+            services.AddScoped<ITeacherService, TeacherService>();
+
             services.AddScoped<IGroupRepository, GroupRepository>();
             services.AddScoped<IGroupService, GroupService>();
 
-            
+            services.AddScoped<IStudentRepository, StudentRepository>();
+            services.AddScoped<IStudentService, StudentService>();
         }
     }
 }
