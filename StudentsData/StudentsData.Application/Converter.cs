@@ -17,6 +17,7 @@ namespace StudentsData.Application
             CreateMap<Student, StudentViewModel>().ForMember(d => d.Group, s => s.MapFrom(d => d.Group));
             CreateMap<StudentCreateViewModel, Student>();
             CreateMap<StudentEditViewModel, Student>();
+            CreateMap<TeacherCreateViewModel, Teacher>().ForMember(d => d.PasswordHash, s => s.MapFrom(d => d.Password));
         }
     }
 }
