@@ -15,10 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\StudentsData.Application\StudentsData.Application.csproj" />
     <ProjectReference Include="..\StudentsData.Infrastructure.IoC\StudentsData.Infrastructure.IoC.csproj" />
   </ItemGroup>

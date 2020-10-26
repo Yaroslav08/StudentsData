@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using StudentsData.Application.Interfaces;
+using StudentsData.Application.ViewModels.Create;
+using StudentsData.Application.ViewModels.Edit;
 
 namespace StudentsData.MVC.Controllers
 {
@@ -20,7 +22,63 @@ namespace StudentsData.MVC.Controllers
             studentService = _studentService;
         }
 
+        [HttpGet("create")]
+        public IActionResult Create()
+        {
+            return View();
+        }
 
+        [HttpPost("create")]
+        public async Task<IActionResult> Create(StudentCreateViewModel model)
+        {
+            var res = await studentService.CreateStudent(model);
+            if (res != "OK")
+            {
+                ViewBag.Error = res;
+                return View("Error");
+            }
+            return LocalRedirect("~/student/all");
+        }
 
+        [HttpGet("edit/{Id}")]
+        public async Task<IActionResult> Edit(int Id)
+        {
+            var student = await studentService.GetStudentById(Id);
+            if (student == null)
+            {
+                ViewBag.Error = "Student not found";
+                return View("Error");
+            }
+            return View(new StudentEditViewModel
+            {
+                Id = student.Id,
+                Firstname = student.Firstname,
+                Middlename = student.Middlename,
+                Lastname = student.Lastname,
+                Address = student.Address,
+                EmailAddress = student.EmailAddress,
+                MobilePhone = student.MobilePhone,
+                Passport = student.Passport,
+                Photo = student.Photo
+            });
+        }
+
+        [HttpPost("edit")]
+        public async Task<IActionResult> Edit(StudentEditViewModel model)
+        {
+            var res = await studentService.EditStudent(model);
+            if (res != "OK")
+            {
+                ViewBag.Error = res;
+                return View("Error");
+            }
+            return LocalRedirect("~/student/all");
+        }
+
+        [HttpGet("all")]
+        public async Task<IActionResult> GetAll()
+        {
+            return View(await studentService.GetAllStudents());
+        }
     }
 }
