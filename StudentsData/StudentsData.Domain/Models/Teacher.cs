@@ -18,6 +18,11 @@ namespace StudentsData.Domain.Models
         public string Login { get; set; }
         [Required, MinLength(10), MaxLength(1000)]
         public string PasswordHash { get; set; }
+        [Required]
+        public bool IsConfirm { get; set; } = false;
+        public DateTime? DateConfirm { get; set; }
+        [Required]
+        public string TokenConfirm { get; set; } = Guid.NewGuid().ToString("N");
         [MinLength(10), MaxLength(100)]
         public string Avatar { get; set; }
     }
