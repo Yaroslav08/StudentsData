@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<StudentsData.Application.ViewModels.StudentViewModel>
 
 @{
-    ViewData["Title"] = "GetAll";
+    ViewData["Title"] = "Усі студенти";
 }
 
 <h1>Усі студенти</h1>
@@ -20,7 +20,7 @@ else
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Id)
+                    @Html.DisplayNameFor(model => model.Photo)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.CreatedAt)
@@ -34,9 +34,6 @@ else
                 <th>
                     @Html.DisplayNameFor(model => model.Lastname)
                 </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Photo)
-                </th>
                 <th></th>
             </tr>
         </thead>
@@ -45,7 +42,7 @@ else
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Id)
+                        <img src="@item.Photo" height="50" width="50"/>
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.CreatedAt)
@@ -58,9 +55,6 @@ else
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Lastname)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Photo)
                     </td>
                     <td>
                         @Html.ActionLink("Редагувати", "Edit", new { Id = item.Id }) |
