@@ -10,7 +10,7 @@ using StudentsData.Application.ViewModels.Create;
 
 namespace StudentsData.MVC.Controllers
 {
-    [Route("teacher")]
+    [Route("Teacher")]
     public class TeacherController : Controller
     {
         private readonly ITeacherService teacherService;
@@ -22,14 +22,14 @@ namespace StudentsData.MVC.Controllers
             teacherService = _teacherService;
         }
 
-        [HttpGet("create")]
-        public IActionResult CreateTeacher()
+        [HttpGet("Create")]
+        public IActionResult Create()
         {
             return View();
         }
 
-        [HttpPost("create")]
-        public async Task<IActionResult> CreateTeacher(TeacherCreateViewModel model)
+        [HttpPost("Create")]
+        public async Task<IActionResult> Create(TeacherCreateViewModel model)
         {
             var res = await teacherService.RegisterTeacher(model);
             if (res != "OK")

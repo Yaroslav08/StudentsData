@@ -8,7 +8,7 @@ namespace StudentsData.Infrastructure.Data.Context
 {
     public class StudentsDataContext : DbContext
     {
-        private const string LocalConnection = "";
+        private const string LocalConnection = "Server=(localdb)\\MSSQLLocalDB;Database=StudentsData;Trusted_Connection=True;";
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<Group> Groups { get; set; }
         public DbSet<Student> Students { get; set; }
