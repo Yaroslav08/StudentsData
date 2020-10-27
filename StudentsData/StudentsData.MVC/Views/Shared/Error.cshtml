@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewData["Title"] = "Error";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="error-template">
+                <h1>
+                    УПС, щось пішло не так!
+                </h1>
+                <h2>
+                    404 Не знайдено
+                </h2>
+                @if (string.IsNullOrEmpty(ViewBag.Error))
+                {
+                    <div class="error-details">
+                        Вибачте, але запитувана сторінка не знайдена, або не вистачає прав доступу
+                    </div>
+                }
+                else
+                {
+                    <div class="error-details">
+                        @ViewBag.Error
+                    </div>
+                }
+                <div class="error-actions">
+                    <a href="~/" class="btn btn-primary btn-lg">
+                        <span class="glyphicon glyphicon-home"></span>
+                        Повернутися на головну
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .error-template {
+        padding: 40px 15px;
+        text-align: center;
+    }
+
+    .error-actions {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+        .error-actions .btn {
+            margin-right: 10px;
+        }
+</style>
