@@ -78,9 +78,11 @@ namespace StudentsData.MVC.Controllers
         }
 
         [HttpGet("all")]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAll(string name, int count = 50, int skip = 0)
         {
-            return View(await studentService.GetAllStudents());
+            if (string.IsNullOrEmpty(name))
+                return View(await studentService.GetAllStudents());
+            return View(await studentService.SearchStudents(name, count, skip));
         }
 
         [HttpGet("{Id}")]
