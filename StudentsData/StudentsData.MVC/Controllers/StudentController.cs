@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using StudentsData.Application.Interfaces;
@@ -11,6 +12,7 @@ using StudentsData.Application.ViewModels.Edit;
 namespace StudentsData.MVC.Controllers
 {
     [Route("student")]
+    [Authorize]
     public class StudentController : Controller
     {
         private readonly IStudentService studentService;

@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using StudentsData.Application.Interfaces;
 using StudentsData.Application.ViewModels.Create;
+using StudentsData.Application.ViewModels.Edit;
 
 namespace StudentsData.MVC.Controllers
 {
@@ -37,7 +39,38 @@ namespace StudentsData.MVC.Controllers
                 ViewBag.Error = res;
                 return View("Error");
             }
-            return LocalRedirect("~/");
+            return LocalRedirect("~/Confirm");
+        }
+
+        [HttpGet("Confirm")]
+        public IActionResult ConfirmTeacherAccount()
+        {
+            return View();
+        }
+
+        [HttpPost("Confirm")]
+        public async Task<IActionResult> ConfirmTeacherAccount(TeacherConfirmViewModel model)
+        {
+            var res = await teacherService.ConfirmTeacherAccount(model);
+            if (res != "OK") 
+            {
+                ViewBag.Error = res;
+                return View("Error");
+            }
+            return LocalRedirect("~/login");
+        }
+
+        [HttpGet("Me")]
+        [Authorize]
+        public async Task<IActionResult> Me()
+        {
+            var teacher = await teacherService.GetMe(Convert.ToInt32(User.Claims.First(d => d.Type == "Id").Value));
+            if (teacher == null)
+            {
+                ViewBag.Error = "Викладача не знайдено";
+                return View("Error");
+            }
+            return View(teacher);
         }
     }
 }

@@ -1,0 +1,26 @@
+﻿@model StudentsData.Application.ViewModels.Edit.TeacherConfirmViewModel
+
+@{
+    ViewData["Title"] = "Підтвердження акаунту";
+}
+
+<h1>Підтвердження акаунту</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="ConfirmTeacherAccount" asp-controller="Teacher" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Token" class="control-label"></label>
+                <input asp-for="Token" class="form-control" />
+                <span asp-validation-for="Token" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Активувати сторінку" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
