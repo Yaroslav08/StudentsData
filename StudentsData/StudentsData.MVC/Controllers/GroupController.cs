@@ -68,6 +68,18 @@ namespace StudentsData.MVC.Controllers
             return LocalRedirect("~/group/all");
         }
 
+        [HttpGet("{Id}")]
+        public async Task<IActionResult> Details(int Id)
+        {
+            var group = await groupService.GetGroupByIdWithStudents(Id);
+            if (group == null)
+            {
+                ViewBag.Error = "Групу не знайдено";
+                return View("Error");
+            }
+            return View(group);
+        }
+
         [HttpGet("all")]
         public async Task<IActionResult> GetAllGroups(string name)
         {

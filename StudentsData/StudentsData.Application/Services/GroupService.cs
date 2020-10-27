@@ -26,7 +26,9 @@ namespace StudentsData.Application.Services
         {
             return await unitOfWork.Groups.CreateAsync(new Domain.Models.Group
             {
-                Name = model.Name
+                Name = model.Name,
+                DateStartEdu = model.DateStartEdu,
+                DateEndEdu = model.DateEndEdu
             });
         }
 
@@ -35,6 +37,8 @@ namespace StudentsData.Application.Services
             var group = await unitOfWork.Groups.GetByWhereAsTrackingAsync(d => d.Id == model.Id);
             if (group == null) return null;
             group.Name = model.Name;
+            group.DateStartEdu = model.DateStartEdu;
+            group.DateEndEdu = model.DateEndEdu;
             return await unitOfWork.Groups.EditAsync(group);
         }
 
