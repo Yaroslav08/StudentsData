@@ -69,9 +69,11 @@ namespace StudentsData.MVC.Controllers
         }
 
         [HttpGet("all")]
-        public async Task<IActionResult> GetAllGroups()
+        public async Task<IActionResult> GetAllGroups(string name)
         {
-            return View(await groupService.GetAllGroups());
+            if (string.IsNullOrEmpty(name))
+                return View(await groupService.GetAllGroups());
+            return View(await groupService.SearchGroups(name));
         }
 
         [HttpGet("remove/{Id}")]
