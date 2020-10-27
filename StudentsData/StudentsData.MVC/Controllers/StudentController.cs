@@ -88,7 +88,7 @@ namespace StudentsData.MVC.Controllers
         [HttpGet("{Id}")]
         public async Task<IActionResult> Details(int Id)
         {
-            var student = await studentService.GetStudentById(Id);
+            var student = await studentService.GetStudentByIdWithGroup(Id);
             if (student == null)
             {
                 ViewBag.Error = "Студента не знайдено";

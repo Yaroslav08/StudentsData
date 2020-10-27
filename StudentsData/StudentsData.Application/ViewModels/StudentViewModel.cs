@@ -26,6 +26,7 @@ namespace StudentsData.Application.ViewModels
         public string EmailAddress { get; set; }
         [DisplayName("Паспортні дані")]
         public string Passport { get; set; }
+        [DisplayName("Група")]
         public GroupViewModel Group { get; set; }
     }
 }
