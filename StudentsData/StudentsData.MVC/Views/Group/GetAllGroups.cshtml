@@ -2,12 +2,18 @@
 
 @{
     ViewData["Title"] = "Усі групи";
+    string name = Context.Request.Query["name"];
 }
 
 <h1>Усі групи</h1>
 <p>
     <a asp-action="Create">Додати</a>
 </p>
+<form method="get" class="form-inline" asp-action="GetAllGroups" asp-controller="Group">
+    <label for="email" class="mr-sm-2">Назва групи:</label>
+    <input type="text" class="form-control mb-2 mr-sm-2" name="name" placeholder="ПД-11" id="name" value="@name">
+    <button type="submit" class="btn btn-primary mb-2">Знайти</button>
+</form>
 @if (Model == null || Model.Count() == 0)
 {
     <p>
