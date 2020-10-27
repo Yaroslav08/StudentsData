@@ -14,6 +14,16 @@
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="DateStartEdu" class="control-label"></label>
+                <input asp-for="DateStartEdu" class="form-control" />
+                <span asp-validation-for="DateStartEdu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateEndEdu" class="control-label"></label>
+                <input asp-for="DateEndEdu" class="form-control" />
+                <span asp-validation-for="DateEndEdu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Створити" class="btn btn-primary" />
             </div>
         </form>
