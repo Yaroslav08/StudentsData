@@ -25,6 +25,7 @@ namespace StudentsData.Application.ViewModels.Edit
         public string EmailAddress { get; set; }
         [MinLength(5), MaxLength(250), DisplayName("Дані паспорта")]
         public string Passport { get; set; }
+        [DisplayName("Група")]
         public int GroupId { get; set; }
     }
 }

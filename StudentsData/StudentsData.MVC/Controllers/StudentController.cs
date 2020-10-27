@@ -23,8 +23,9 @@ namespace StudentsData.MVC.Controllers
         }
 
         [HttpGet("create")]
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            ViewBag.Groups = await studentService.GetGroupsForStudent();
             return View();
         }
 
@@ -49,6 +50,7 @@ namespace StudentsData.MVC.Controllers
                 ViewBag.Error = "Student not found";
                 return View("Error");
             }
+            ViewBag.Groups = await studentService.GetGroupsForStudent();
             return View(new StudentEditViewModel
             {
                 Id = student.Id,

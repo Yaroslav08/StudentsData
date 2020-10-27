@@ -38,6 +38,11 @@ namespace StudentsData.Application.Services
             return mapper.Map<List<StudentViewModel>>(await unitOfWork.Students.GetAllAsync());
         }
 
+        public async Task<List<GroupViewModel>> GetGroupsForStudent()
+        {
+            return mapper.Map<List<GroupViewModel>>(await unitOfWork.Groups.GetAllAsync());
+        }
+
         public async Task<StudentViewModel> GetStudentById(int Id)
         {
             return mapper.Map<StudentViewModel>(await unitOfWork.Students.GetByWhereAsync(d => d.Id == Id));

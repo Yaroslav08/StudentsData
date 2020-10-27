@@ -13,6 +13,7 @@ namespace StudentsData.Application.Interfaces
         Task<string> CreateStudent(StudentCreateViewModel model);
         Task<string> EditStudent(StudentEditViewModel model);
         Task<string> RemoveStudent(int Id);
+        Task<List<GroupViewModel>> GetGroupsForStudent();
         Task<StudentViewModel> GetStudentById(int Id);
         Task<StudentViewModel> GetStudentByIdWithGroup(int Id);
         Task<List<StudentViewModel>> GetAllStudents();
