@@ -37,8 +37,11 @@ namespace StudentsData.Application.Services
         {
             var teacher = await unitOfWork.Teachers.GetByWhereAsTrackingAsync(d => d.Id == model.Id);
             if (teacher == null) return "Teacher not found";
-            if (await unitOfWork.Teachers.IsExistTeacherAsync(model.Username))
-                return "Username is epsend";
+            if (teacher.Username != model.Username)
+            {
+                if (await unitOfWork.Teachers.IsExistTeacherAsync(model.Username))
+                    return "Username is epsend";
+            }
             teacher.Fullname = model.Fullname;
             teacher.Avatar = model.Avatar;
             teacher.Username = model.Username;
