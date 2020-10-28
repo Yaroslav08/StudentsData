@@ -34,6 +34,11 @@ namespace StudentsData.MVC.Controllers
         [HttpPost("create")]
         public async Task<IActionResult> Create(StudentCreateViewModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                ModelState.AddModelError("", "Виконайте правильну валідацію");
+                return View(model);
+            }
             var res = await studentService.CreateStudent(model);
             if (res != "OK")
             {
