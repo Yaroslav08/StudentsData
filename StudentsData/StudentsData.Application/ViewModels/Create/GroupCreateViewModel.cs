@@ -7,11 +7,11 @@ namespace StudentsData.Application.ViewModels.Create
 {
     public class GroupCreateViewModel
     {
-        [Required, MinLength(2), MaxLength(20), DisplayName("Ім'я")]
+        [Required(ErrorMessage = "Обов'язкове до заповнення"), MinLength(2, ErrorMessage = "Мінімальна довжина 2 символи"), MaxLength(20, ErrorMessage = "Максимальна довжина 20 символи"), DisplayName("Ім'я")]
         public string Name { get; set; }
-        [Required, DataType(DataType.Date)]
+        [Required(ErrorMessage = "Обов'язкове до заповнення"), DataType(DataType.Date), DisplayName("Початок навчання")]
         public DateTime DateStartEdu { get; set; }
-        [Required, DataType(DataType.Date)]
+        [Required(ErrorMessage = "Обов'язкове до заповнення"), DataType(DataType.Date), DisplayName("Кінець навчання")]
         public DateTime DateEndEdu { get; set; }
     }
 }

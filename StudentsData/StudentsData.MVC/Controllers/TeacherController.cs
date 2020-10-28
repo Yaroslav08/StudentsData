@@ -39,7 +39,7 @@ namespace StudentsData.MVC.Controllers
                 ViewBag.Error = res;
                 return View("Error");
             }
-            return LocalRedirect("~/Confirm");
+            return LocalRedirect("~/Teacher/Confirm");
         }
 
         [HttpGet("Confirm")]
@@ -67,8 +67,7 @@ namespace StudentsData.MVC.Controllers
             var teacher = await teacherService.GetMe(Convert.ToInt32(User.Claims.First(d => d.Type == "Id").Value));
             if (teacher == null)
             {
-                ViewBag.Error = "Викладача не знайдено";
-                return View("Error");
+                return LocalRedirect("~/logout");
             }
             return View(teacher);
         }

@@ -43,8 +43,8 @@ namespace StudentsData.MVC.Controllers
             var res = await teacherService.LoginTeacher(model.Login, model.Password);
             if (res == null)
             {
-                ViewBag.Error = "Логін чи пароль невірні";
-                return View("Error");
+                ModelState.AddModelError("", "Логін чи пароль невірні");
+                return View(model);
             }
             await AuthenticateAsync(res);
             return LocalRedirect("~/");
@@ -63,10 +63,17 @@ namespace StudentsData.MVC.Controllers
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(id));
         }
 
+        [HttpGet("logout")]
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return LocalRedirect("~/login");
+        }
+
+        [HttpGet("error")]
+        public IActionResult Error()
+        {
+            return View();
         }
     }
 }

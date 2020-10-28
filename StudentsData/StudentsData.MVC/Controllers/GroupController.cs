@@ -54,7 +54,9 @@ namespace StudentsData.MVC.Controllers
             return View(new GroupEditViewModel
             {
                 Id = group.Id,
-                Name = group.Name
+                Name = group.Name,
+                DateStartEdu = group.DateStartEdu,
+                DateEndEdu = group.DateEndEdu
             });
         }
 

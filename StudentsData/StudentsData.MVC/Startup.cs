@@ -45,6 +45,17 @@ namespace StudentsData.MVC
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
+
+            app.Use(async (ctx, next) =>
+            {
+                await next();
+                if (ctx.Response.StatusCode == 404 && !ctx.Response.HasStarted)
+                {
+                    string originalPath = ctx.Request.Path.Value;
+                    ctx.Request.Path = "/error";
+                    await next();
+                }
+            });
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -52,7 +63,7 @@ namespace StudentsData.MVC
 
             app.UseAuthentication();
             app.UseAuthorization();
-
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

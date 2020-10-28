@@ -55,7 +55,7 @@ namespace StudentsData.Infrastructure.Data.Migrations
                     Middlename = table.Column<string>(maxLength: 25, nullable: false),
                     Lastname = table.Column<string>(maxLength: 25, nullable: false),
                     Photo = table.Column<string>(maxLength: 250, nullable: true),
-                    Address = table.Column<string>(maxLength: 25, nullable: false),
+                    Address = table.Column<string>(maxLength: 150, nullable: false),
                     MobilePhone = table.Column<string>(maxLength: 100, nullable: false),
                     EmailAddress = table.Column<string>(maxLength: 100, nullable: false),
                     Passport = table.Column<string>(maxLength: 250, nullable: true),

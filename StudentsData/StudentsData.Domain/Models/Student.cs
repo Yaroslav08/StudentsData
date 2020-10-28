@@ -18,7 +18,7 @@ namespace StudentsData.Domain.Models
         public string Lastname { get; set; }
         [MinLength(5), MaxLength(250)]
         public string Photo { get; set; }
-        [Required, MinLength(5), MaxLength(25)]
+        [Required, MinLength(5), MaxLength(150)]
         public string Address { get; set; }
         [Required, MinLength(5), MaxLength(100), Phone]
         public string MobilePhone { get; set; }

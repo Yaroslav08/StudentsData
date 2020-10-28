@@ -10,7 +10,7 @@ using StudentsData.Infrastructure.Data.Context;
 namespace StudentsData.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(StudentsDataContext))]
-    [Migration("20201027164806_Init")]
+    [Migration("20201028175856_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -58,8 +58,8 @@ namespace StudentsData.Infrastructure.Data.Migrations
 
                     b.Property<string>("Address")
                         .IsRequired()
-                        .HasColumnType("nvarchar(25)")
-                        .HasMaxLength(25);
+                        .HasColumnType("nvarchar(150)")
+                        .HasMaxLength(150);
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
