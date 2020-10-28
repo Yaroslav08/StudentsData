@@ -95,8 +95,8 @@ namespace StudentsData.MVC.Controllers
             var res = await teacherService.EditTeacher(model);
             if(res!="OK")
             {
-                ViewBag.Error = res;
-                return View("Error");
+                ModelState.AddModelError("", res);
+                return View(model);
             }
             return LocalRedirect("~/Teacher/Me");
         }
