@@ -71,5 +71,34 @@ namespace StudentsData.MVC.Controllers
             }
             return View(teacher);
         }
+
+        [HttpGet("Edit")]
+        public async Task<IActionResult> Edit()
+        {
+            var teacher = await teacherService.GetMe(Convert.ToInt32(User.Claims.First(d => d.Type == "Id").Value));
+            if (teacher == null)
+            {
+                return LocalRedirect("~/logout");
+            }
+            return View(new TeacherEditViewModel
+            {
+                Id = teacher.Id,
+                Fullname = teacher.Fullname,
+                Username = teacher.Username,
+                Avatar = teacher.Avatar
+            });
+        }
+
+        [HttpPost("Edit")]
+        public async Task<IActionResult> Edit(TeacherEditViewModel model)
+        {
+            var res = await teacherService.EditTeacher(model);
+            if(res!="OK")
+            {
+                ViewBag.Error = res;
+                return View("Error");
+            }
+            return LocalRedirect("~/Teacher/Me");
+        }
     }
 }
