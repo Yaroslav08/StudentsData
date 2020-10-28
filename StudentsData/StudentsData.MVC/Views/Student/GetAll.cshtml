@@ -1,10 +1,8 @@
 ﻿@model IEnumerable<StudentsData.Application.ViewModels.StudentViewModel>
-
 @{
     ViewData["Title"] = "Усі студенти";
     string name = Context.Request.Query["name"];
 }
-
 <h1>Усі студенти</h1>
 <p>
     <a asp-action="Create">Додати</a>
