@@ -40,7 +40,7 @@ namespace StudentsData.Application.Services
             if (teacher.Username != model.Username)
             {
                 if (await unitOfWork.Teachers.IsExistTeacherAsync(model.Username))
-                    return "Username is epsend";
+                    return "Нікнейм зайнятий";
             }
             teacher.Fullname = model.Fullname;
             teacher.Avatar = model.Avatar;
