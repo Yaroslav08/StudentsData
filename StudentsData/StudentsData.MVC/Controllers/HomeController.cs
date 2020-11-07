@@ -31,6 +31,12 @@ namespace StudentsData.MVC.Controllers
             return View();
         }
 
+        [HttpGet("about")]
+        public IActionResult About()
+        {
+            return View();
+        }
+
         [HttpGet("login")]
         public IActionResult Login()
         {

@@ -11,9 +11,7 @@ namespace TelegramBot
         {
             var botClient = new TelegramBotClient("1312053961:AAHSoJatxCGgjFXOL-7DfWcNRDqq5HF6T4M");
             var me = await botClient.GetMeAsync();
-            Console.WriteLine(
-              $"Hello, World! I am user {me.Id} and my name is {me.FirstName}."
-            );
+            Console.WriteLine($"Hello, i am bot {me.Id} and my name is {me.FirstName}");
             botClient.OnMessage += async (sender, e) =>
                  {
                      if (e.Message.Type == Telegram.Bot.Types.Enums.MessageType.Text)
