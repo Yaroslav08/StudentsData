@@ -48,6 +48,7 @@ namespace StudentsData.MVC
 
             app.Use(async (ctx, next) =>
             {
+                ctx.Response.Headers.Add("Powered-By", "ASP.NET Core 3.1");
                 await next();
                 if (ctx.Response.StatusCode == 404 && !ctx.Response.HasStarted)
                 {
