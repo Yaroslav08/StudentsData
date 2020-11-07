@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentsData.Application", "StudentsData.Application\StudentsData.Application.csproj", "{F83113AA-567B-4A6E-8165-9F3E86D11C66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudentsData.Application", "StudentsData.Application\StudentsData.Application.csproj", "{F83113AA-567B-4A6E-8165-9F3E86D11C66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentsData.Domain", "StudentsData.Domain\StudentsData.Domain.csproj", "{CAC3E9A7-4933-4834-8E6D-1CA492D3F859}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudentsData.Domain", "StudentsData.Domain\StudentsData.Domain.csproj", "{CAC3E9A7-4933-4834-8E6D-1CA492D3F859}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentsData.Infrastructure.Data", "StudentsData.Infrastructure.Data\StudentsData.Infrastructure.Data.csproj", "{78C7D349-A267-421A-AD97-03E2CBD3564A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudentsData.Infrastructure.Data", "StudentsData.Infrastructure.Data\StudentsData.Infrastructure.Data.csproj", "{78C7D349-A267-421A-AD97-03E2CBD3564A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentsData.Infrastructure.IoC", "StudentsData.Infrastructure.IoC\StudentsData.Infrastructure.IoC.csproj", "{F72F6304-B1C0-4B04-81CD-A81FA05D0C47}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudentsData.Infrastructure.IoC", "StudentsData.Infrastructure.IoC\StudentsData.Infrastructure.IoC.csproj", "{F72F6304-B1C0-4B04-81CD-A81FA05D0C47}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentsData.MVC", "StudentsData.MVC\StudentsData.MVC.csproj", "{DFD96F5A-7ED2-45B2-AB7E-5C4D51C08446}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudentsData.MVC", "StudentsData.MVC\StudentsData.MVC.csproj", "{DFD96F5A-7ED2-45B2-AB7E-5C4D51C08446}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelegramBot", "TelegramBot\TelegramBot.csproj", "{3FBEA45D-F606-4787-A88B-FA6ACE64D7FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{DFD96F5A-7ED2-45B2-AB7E-5C4D51C08446}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DFD96F5A-7ED2-45B2-AB7E-5C4D51C08446}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DFD96F5A-7ED2-45B2-AB7E-5C4D51C08446}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FBEA45D-F606-4787-A88B-FA6ACE64D7FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FBEA45D-F606-4787-A88B-FA6ACE64D7FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FBEA45D-F606-4787-A88B-FA6ACE64D7FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FBEA45D-F606-4787-A88B-FA6ACE64D7FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
